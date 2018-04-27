@@ -1,0 +1,14 @@
+sudo apt-get update && sudo apt-get upgrade
+sudo apt-get install motion
+sudo nano /etc/motion/motion.conf
+DAEMON = ON
+Webcam_localhost = OFF
+sudo nano /etc/default/motion
+start_motion_daemon = yes
+sudo service motion start
+sudo nano /etc/rc.local
+sudo service motion stop
+# Start motion
+motion
+sudo apt-get install fswebcam
+fswebcam Pictures/1.jpg
