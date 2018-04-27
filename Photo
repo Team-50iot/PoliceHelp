@@ -11,4 +11,4 @@ sudo service motion stop
 # Start motion
 motion
 sudo apt-get install fswebcam
-fswebcam Pictures/1.jpg
+fswebcam --no-banner Pictures/1.jpg
