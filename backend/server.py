@@ -1,10 +1,9 @@
-from flask import Flask , jsonify
 from DBcm import UseDatabase
 import mysql.connector
-from flask import Flask, request,jsonify
-from flask_restful import Resource, Api
-from sqlalchemy import create_engine
-app = Flask(__name__)
+from flask import Flask, request,jsonify,redirect,render_template
+
+
+app = Flask(__name__,template_folder='Our_WebSite')
 
 
 conn = mysql.connector.connect(user="root",
@@ -14,7 +13,22 @@ conn = mysql.connector.connect(user="root",
                                database="mydb")
 
 
-@app.route('/', methods=['GET'])
+
+
+
+@app.route('/')
+def hello() -> '302':
+    return  redirect('/index')
+
+@app.route('/index')
+def index() -> 'html':
+    return render_template('index.html')
+
+@app.route('/news')
+def news() -> 'html':
+    return render_template('blog.html')
+
+@app.route('/db', methods=['GET'])
 def home():
     script = """SELECT  id , time  , number from data"""
     cursor = conn.cursor()
@@ -31,4 +45,4 @@ def home():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, use_reloader=True)
