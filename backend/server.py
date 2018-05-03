@@ -24,9 +24,15 @@ def hello() -> '302':
 def index() -> 'html':
     return render_template('index.html')
 
-@app.route('/news')
+@app.route('/blog')
 def news() -> 'html':
     return render_template('blog.html')
+
+@app.route('/vkontakte')
+def vkontakte() -> 'html':
+    return render_template('vkontakte.html')
+
+
 
 @app.route('/db', methods=['GET'])
 def home():
