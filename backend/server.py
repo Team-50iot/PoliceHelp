@@ -1,6 +1,5 @@
-from DBcm import UseDatabase
 import mysql.connector
-from flask import Flask, request,jsonify,redirect,render_template
+from flask import Flask,jsonify,redirect,render_template
 
 
 app = Flask(__name__,template_folder='Our_WebSite')
