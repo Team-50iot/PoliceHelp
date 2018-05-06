@@ -12,3 +12,8 @@ sudo service motion stop
 motion
 sudo apt-get install fswebcam
 fswebcam --no-banner Pictures/1.jpg
+cat /proc/cpuinfo | grep "model name"
+mkdir gdrive
+sudo wget https://github.com/odeke-em/drive/releases/download/v0.3.4/drive-armv7 -O /usr/local/bin/drive
+sudo chmod +x /usr/local/bin/drive
+drive init gdrive
