@@ -5,6 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__,template_folder='Our_WebSite')
 
 
+'''
 user, password = '1pavel1', 'ppm021999'
 host = '1pavel1.mysql.pythonanywhere-services.com'
 db = '1pavel1$PoliceHelp' # dbFlask was created as a PythonAnywhere MySQL database
@@ -15,7 +16,7 @@ db = SQLAlchemy(app)
 
 
 
-'''SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://{1pavel1}:{ppm021999}@{1pavel1.mysql.pythonanywhere-services.com}/{PoliceHelp}".format(
+SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://{1pavel1}:{ppm021999}@{1pavel1.mysql.pythonanywhere-services.com}/{PoliceHelp}".format(
     username="1pavel1",
     password="ppm021999",
     hostname="1pavel1.mysql.pythonanywhere-services.com",
@@ -29,11 +30,11 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 conn = SQLAlchemy(app)'''
 
-'''conn = mysql.connector.connect(user="1pavel1",
+
+conn = mysql.connector.connect(user="1pavel1",
                                password="ppm021999",
                                host="1pavel1.mysql.pythonanywhere-services.com",
-                               database="1pavel1$PoliceHelp")'''
-
+                               database="1pavel1$PoliceHelp")
 
 
 
@@ -59,7 +60,7 @@ def vkontakte() -> 'html':
 @app.route('/db', methods=['GET'])
 def home():
     script = """SELECT  id , time  , number from info"""
-    cursor = db.cursor()
+    cursor = conn.cursor()
 
     cursor.execute(script)
     row_headers = [x[0] for x in cursor.description]
