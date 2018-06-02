@@ -45,7 +45,7 @@ ls
 cd RaspImages
 ls
 cd ..
-cd "Rasberry To Drive"
+cd "Raspberry To Drive"
 nano make_image_and_upload.py
 python3 make_image_and_upload.py
 sudo umount /dev/sda1
